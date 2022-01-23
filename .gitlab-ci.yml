@@ -42,5 +42,5 @@ deploy-job:      # This job runs in the deploy stage.
   stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
   script:
     - echo "Deploying application..."
-    - git push --mirror https://github.com/Lindomarc/api-php.git
+    - git push --mirror https://lindomarc:gitlab-token@github.com/Lindomarc/api-php.git
     - echo "Application successfully deployed."
