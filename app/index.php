@@ -3,7 +3,7 @@ define('API_BASE', 'http://localhost:8080/?option=');
 echo '<p>Application</p><hr><pre>';
 
 for ($i = 0; $i<10;$i++){
-    $results = apiRequest('random');
+    $results = apiRequest('random&min=1&max=60');
     if($results['status'] === 'error'){
         die('Api Error');
     }
