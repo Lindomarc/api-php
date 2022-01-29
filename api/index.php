@@ -9,14 +9,12 @@ if(isset($_GET['option'])){
             $data['status'] = 'success';
             $data['data'] = 'API OK';            
             break;
-        
         default:
             $data['status'] = 'ERROR';
             break;
     }
 } else {
     $data['status'] = 'ERROR';
-
 }
 
 // emitir response da api
