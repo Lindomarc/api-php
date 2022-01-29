@@ -1,7 +1,16 @@
 <?php
 define('API_BASE', 'http://localhost:8080/?option=');
+echo '<p>Application</p><hr><pre>';
 
-$results = apiRequest('status');
+for ($i = 0; $i<10;$i++){
+    $results = apiRequest('random');
+    if($results['status'] === 'error'){
+        die('Api Error');
+    }
+    echo "Random value: {$results['data']}</br>";
+}
+
+echo 'Finish';
 
 function apiRequest($option)
 {
@@ -11,5 +20,3 @@ function apiRequest($option)
     return json_decode($result,true);
 }
 
-echo '<p>Application</p><hr><pre>';
-print_r($results);

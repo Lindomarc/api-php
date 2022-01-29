@@ -2,24 +2,30 @@
 
 $data = [];
 
+// prepare response
+$data['status'] = 'error';
+$data['data'] = null;
+
 // request
 if(isset($_GET['option'])){
     switch ($_GET['option']) {
         case 'status':
-            $data['status'] = 'success';
-            $data['data'] = 'API OK';            
+            defineResponse($data, 'API OK');
             break;
-        default:
-            $data['status'] = 'ERROR';
+        case 'random':
+            defineResponse($data, rand(10,1000));
             break;
     }
-} else {
-    $data['status'] = 'ERROR';
 }
 
 // emitir response da api
 response($data);
 
+function defineResponse(&$data, $message)
+{
+    $data['status'] = 'success';
+    $data['data'] = $message;
+}
 // construir response
 function response($dataResponse)
 {
